@@ -1,4 +1,4 @@
-package com.niteshkumarjha.leboncoinapp;
+package com.niteshkumarjha.leboncoinapp.ui.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.niteshkumarjha.leboncoinapp.R;
 
 public class LargerImageActivity extends AppCompatActivity {
 
@@ -22,8 +23,8 @@ public class LargerImageActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load(imageUrl)
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .error(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_loading_icon)
+                .error(R.drawable.ic_loading_error_icon)
                 .into(largerImageView);
     }
 }

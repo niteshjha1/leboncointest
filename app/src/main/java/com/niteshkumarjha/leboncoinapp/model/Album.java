@@ -1,4 +1,4 @@
-package com.niteshkumarjha.leboncoinapp;
+package com.niteshkumarjha.leboncoinapp.model;
 
 public class Album {
 

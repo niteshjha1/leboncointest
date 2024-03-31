@@ -1,4 +1,4 @@
-package com.niteshkumarjha.leboncoinapp;
+package com.niteshkumarjha.leboncoinapp.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.niteshkumarjha.leboncoinapp.R;
+import com.niteshkumarjha.leboncoinapp.model.Album;
+import com.niteshkumarjha.leboncoinapp.ui.viewmodel.AlbumViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
@@ -43,7 +45,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Album album = albumList.get(position);
         holder.titleTextView.setText(album.getTitle());
 
-        Glide.with(context).load(album.getThumbNailUrl()).placeholder(R.drawable.ic_launcher_foreground).error(R.drawable.ic_launcher_background).into(holder.thumNailImageView);
+        Glide.with(context)
+                .load(album.getThumbNailUrl())
+                .placeholder(R.drawable.ic_loading_icon)
+                .error(R.drawable.ic_loading_error_icon)
+                .into(holder.thumNailImageView);
 
         holder.itemView.setOnClickListener(v -> {
             viewModel.onThumbnailClicked(album.getUrl());

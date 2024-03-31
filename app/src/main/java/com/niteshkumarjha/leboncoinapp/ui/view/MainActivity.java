@@ -1,7 +1,6 @@
-package com.niteshkumarjha.leboncoinapp;
+package com.niteshkumarjha.leboncoinapp.ui.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +10,10 @@ import android.os.Bundle;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.niteshkumarjha.leboncoinapp.R;
+import com.niteshkumarjha.leboncoinapp.model.Album;
+import com.niteshkumarjha.leboncoinapp.ui.adapter.AlbumAdapter;
+import com.niteshkumarjha.leboncoinapp.ui.viewmodel.AlbumViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
