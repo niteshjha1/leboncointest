@@ -17,10 +17,13 @@ import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
     private Context context;
-    private List<Album> albumList = new ArrayList<>();
+    private List<Album> albumList;
+    private AlbumViewModel viewModel;
 
-    public AlbumAdapter(Context context){
+    public AlbumAdapter(Context context, AlbumViewModel viewModel, List<Album> albumList) {
         this.context = context;
+        this.viewModel = viewModel;
+        this.albumList = albumList;
     }
 
     public void setAlbumList(List<Album> albumList) {
@@ -40,28 +43,28 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Album album = albumList.get(position);
         holder.titleTextView.setText(album.getTitle());
 
-        Glide.with(context)
-                .load(album.getThumbNailUrl())
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .error(R.drawable.ic_launcher_background)
-                .into(holder.thumNailImageView);
+        Glide.with(context).load(album.getThumbNailUrl()).placeholder(R.drawable.ic_launcher_foreground).error(R.drawable.ic_launcher_background).into(holder.thumNailImageView);
+
+        holder.itemView.setOnClickListener(v -> {
+            viewModel.onThumbnailClicked(album.getUrl());
+        });
     }
+
 
     @Override
     public int getItemCount() {
         return albumList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView titleTextView;
         public ImageView thumNailImageView;
 
-        public ViewHolder (View itemView){
+        public ViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
             thumNailImageView = itemView.findViewById(R.id.thumbnailImageView);
         }
-
     }
 }

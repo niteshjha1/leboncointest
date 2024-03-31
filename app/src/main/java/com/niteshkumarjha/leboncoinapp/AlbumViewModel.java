@@ -22,6 +22,15 @@ public class AlbumViewModel extends ViewModel {
 
     private MutableLiveData<List<Album>> albumListLiveData = new MutableLiveData<>();
     private List<Album> albumList = new ArrayList<>();
+    private MutableLiveData<String> selectedImageUrl = new MutableLiveData<>();
+
+    public void onThumbnailClicked(String imageUrl) {
+        selectedImageUrl.setValue(imageUrl);
+    }
+
+    public LiveData<String> getSelectedImageUrl() {
+        return selectedImageUrl;
+    }
 
     public LiveData<List<Album>> getAlbumList() {
         return albumListLiveData;
