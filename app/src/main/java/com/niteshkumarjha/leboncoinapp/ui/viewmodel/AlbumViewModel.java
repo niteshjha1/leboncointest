@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.niteshkumarjha.leboncoinapp.data.local.entity.AlbumEntity;
 import com.niteshkumarjha.leboncoinapp.data.repository.AlbumRepository;
@@ -48,6 +49,10 @@ public class AlbumViewModel extends AndroidViewModel {
 
     public LiveData<List<Album>> getAlbumList() {
         return albumListLiveData;
+    }
+
+    public void log(String tag, String message) {
+        VolleyLog.d(tag, message);
     }
 
     public void fetchData(RequestQueue requestQueue) {

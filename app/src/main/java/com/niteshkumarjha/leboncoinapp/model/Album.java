@@ -8,6 +8,17 @@ public class Album {
     private String url;
     private String thumbNailUrl;
 
+    public Album(){}
+
+    public Album(int albumId, int id, String title, String url, String thumbNailUrl) {
+        this.albumId = albumId;
+        this.id = id;
+        this.title = title;
+        this.url = url;
+        this.thumbNailUrl = thumbNailUrl;
+    }
+
+
     public int getAlbumId() {
         return albumId;
     }
